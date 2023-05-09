@@ -17,6 +17,9 @@ extension PurchasesClient: DependencyKey {
         },
         purchaseProduct: { product in
             try await Purchases.shared.purchase(product: product)
+        },
+        restorePurchases: {
+            try await Purchases.shared.restorePurchases()
         }
     )
 
@@ -24,13 +27,15 @@ extension PurchasesClient: DependencyKey {
         canMakePayments: { true },
         configure: { _ in },
         products: { _ in [] },
-        purchaseProduct: { _ in try await Task.never() }
+        purchaseProduct: { _ in try await Task.never() },
+        restorePurchases: { try await Task.never() }
     )
 
     public static let testValue = PurchasesClient(
         canMakePayments: unimplemented("\(Self.self).canMakePayments", placeholder: true),
         configure: unimplemented("\(Self.self).configure"),
         products: unimplemented("\(Self.self).products"),
-        purchaseProduct: unimplemented("\(Self.self).purchaseProduct")
+        purchaseProduct: unimplemented("\(Self.self).purchaseProduct"),
+        restorePurchases: unimplemented("\(Self.self).restorePurchases")
     )
 }
