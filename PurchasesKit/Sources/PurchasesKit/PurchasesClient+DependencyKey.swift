@@ -32,7 +32,7 @@ extension PurchasesClient: DependencyKey {
     )
 
     public static let testValue = PurchasesClient(
-        canMakePayments: unimplemented("\(Self.self).canMakePayments", placeholder: true),
+        canMakePayments: unimplemented("\(Self.self).canMakePayments", placeholder: false),
         configure: unimplemented("\(Self.self).configure"),
         products: unimplemented("\(Self.self).products"),
         purchaseProduct: unimplemented("\(Self.self).purchaseProduct"),
