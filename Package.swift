@@ -21,8 +21,7 @@ let package = Package(
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
                 .product(name: "RevenueCat", package: "purchases-ios"),
-            ],
-            path: "Sources"
+            ]
         ),
         .testTarget(
             name: "PurchasesKitTests",
