@@ -1,12 +1,14 @@
 import Foundation
 import RevenueCat
 
-public struct PurchasableProduct: Equatable {
+public struct PurchasableProduct: Equatable, Hashable, Identifiable {
     public let localizedDescription: String
     public let localizedPriceString: String
     public let localizedTitle: String
     public let productIdentifier: String
     public var storeProduct: StoreProduct? = nil
+
+    public var id: String { productIdentifier }
 
     public init(storeProduct: StoreProduct) {
         self.localizedDescription = storeProduct.localizedDescription
